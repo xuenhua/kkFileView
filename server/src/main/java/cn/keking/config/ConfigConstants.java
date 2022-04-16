@@ -42,7 +42,6 @@ public class ConfigConstants {
     private static String pdfBookmarkDisable;
     private static Boolean fileUploadDisable;
     private static String tifPreviewType;
-    private static String serverPort;
 
     public static final String DEFAULT_CACHE_ENABLED = "true";
     public static final String DEFAULT_TXT_TYPE = "txt,html,htm,asp,jsp,xml,json,properties,md,gitignore,log,java,py,c,cpp,sql,sh,bat,m,bas,prg,cmd";
@@ -356,18 +355,5 @@ public class ConfigConstants {
     public static void setTifPreviewTypeValue(String tifPreviewType) {
         ConfigConstants.tifPreviewType = tifPreviewType;
     }
-    //
-    public static String getServerPort() {
-        return serverPort;
-    }
 
-    @Value("${server.port:8012}")
-    public static void setServerPort(String serverPort) {
-    	setServerPortValue(serverPort);
-    }
-
-    public static void setServerPortValue(String serverPort) {
-        ConfigConstants.serverPort = serverPort;
-    }
-    
 }

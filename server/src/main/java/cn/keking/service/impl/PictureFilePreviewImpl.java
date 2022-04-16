@@ -29,7 +29,7 @@ public class PictureFilePreviewImpl implements FilePreview {
 
     @Override
     public String filePreviewHandle(String url, Model model, FileAttribute fileAttribute) {
-    	String server_port=ConfigConstants.getServerPort();
+    	String base_url=ConfigConstants.getBaseUrl();
     	//System.out.println(server_port);
         List<String> imgUrls = new ArrayList<>();
         imgUrls.add(url);
@@ -47,7 +47,7 @@ public class PictureFilePreviewImpl implements FilePreview {
                 String file = fileHandlerService.getRelativePath(response.getContent());
                 imgUrls.clear();
                 //xuenhua 修正currentUrl为下载后文件地址进行预览
-                file="http://127.0.0.1:" + server_port+ "/"+file;
+                file=base_url+ "/"+file;
                 imgUrls.add(file);
                 model.addAttribute("imgUrls", imgUrls);
                 model.addAttribute("currentUrl", file);

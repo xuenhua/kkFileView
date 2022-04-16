@@ -54,7 +54,6 @@ public class ConfigRefreshComponent {
                 String pdfBookmarkDisable;
                 boolean fileUploadDisable;
                 String tifPreviewType;
-                String server_port;//服务端口
 
                 while (true) {
                     FileReader fileReader = new FileReader(configFilePath);
@@ -80,8 +79,6 @@ public class ConfigRefreshComponent {
                     pdfBookmarkDisable = properties.getProperty("pdf.bookmark.disable", ConfigConstants.DEFAULT_PDF_BOOKMARK_DISABLE);
                     fileUploadDisable = Boolean.parseBoolean(properties.getProperty("file.upload.disable", ConfigConstants.DEFAULT_FILE_UPLOAD_DISABLE));
                     tifPreviewType = properties.getProperty("tif.preview.type", ConfigConstants.DEFAULT_TIF_PREVIEW_TYPE);
-
-                    server_port = properties.getProperty("server.port", ConfigConstants.DEFAULT_SERVER_PORT);//端口
                     
                     ConfigConstants.setCacheEnabledValueValue(cacheEnabled);
                     ConfigConstants.setSimTextValue(textArray);
@@ -100,7 +97,6 @@ public class ConfigRefreshComponent {
                     ConfigConstants.setPdfBookmarkDisableValue(pdfBookmarkDisable);
                     ConfigConstants.setFileUploadDisableValue(fileUploadDisable);
                     ConfigConstants.setTifPreviewTypeValue(tifPreviewType);
-                    ConfigConstants.setServerPort(server_port);
                     setWatermarkConfig(properties);
                     bufferedReader.close();
                     fileReader.close();
