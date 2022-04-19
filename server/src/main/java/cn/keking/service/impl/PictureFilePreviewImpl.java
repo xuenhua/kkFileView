@@ -41,6 +41,13 @@ public class PictureFilePreviewImpl implements FilePreview {
         // ftp 或 http 文件先下载到本地
         if (url != null && (url.toLowerCase().startsWith("http")||url.toLowerCase().startsWith("ftp"))) {
             ReturnResponse<String> response = DownloadUtils.downLoad(fileAttribute, null);
+            if(response.isFailure()) {//如果下载失败，重试4次
+            	for(int i=0;i<4;i++) {
+            		response = DownloadUtils.downLoad(fileAttribute, null);
+            		if (!response.isFailure()) break;
+            	}
+            }
+            
             if (response.isFailure()) {
                 return otherFilePreview.notSupportedFile(model, fileAttribute, response.getMsg());
             } else {
