@@ -25,7 +25,16 @@
 
     /*初始化水印*/
     window.onload = function () {
+	    if(isIE()){
+			alert("OFD文件预览不支持IE浏览器。\r\nWin10以上系统可以使用系统自带EDGE浏览器，\r\nWin7系统请使用Chrome、火狐、360极速模式等。");
+		}
         initWaterMark();
+    }
+    function isIE() {
+	    if (!!window.ActiveXObject || "ActiveXObject" in window)
+	        return true;
+	    else
+	        return false;
     }
 </script>
 </html>
