@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--设置浏览器打印为空白内容，防止打印-->
+    <style>@media print{body{display:none}}</style>
     <title>ofd.js</title>
 <link href="chunk-vendors.css" rel="stylesheet">
 <link href="app.css" rel="stylesheet">
@@ -12,10 +14,21 @@
 <div id="app">
 </div>
 <script type="text/javascript">
-
+	//禁止右键菜单
+	document.oncontextmenu = function(){ return false; };
+	// 禁止文字选择
+	document.onselectstart = function(){ return false; };
+	// 禁止复制
+	document.oncopy = function(){ return false; };
+	// 禁止剪切
+	document.oncut = function(){ return false; };
+	// 禁止粘贴
+	document.onpaste = function(){ return false; };
 </script>
 <script src="polyfill.min.js"></script>
 <script src="chunk-vendors.c0cd1494.js"></script>
 <script src="app.js"></script>
+
+
 </body>
 </html>
