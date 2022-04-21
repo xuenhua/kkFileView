@@ -43,6 +43,12 @@ public class PictureFilePreviewImpl implements FilePreview {
             ReturnResponse<String> response = DownloadUtils.downLoad(fileAttribute, null);
             if(response.isFailure()) {//如果下载失败，重试4次
             	for(int i=0;i<4;i++) {
+            		try {
+            			System.out.println("文件下载失败-----sleep 5 s-----");
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
             		response = DownloadUtils.downLoad(fileAttribute, null);
             		if (!response.isFailure()) break;
             	}
